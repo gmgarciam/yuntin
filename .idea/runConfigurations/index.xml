@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="index" type="JavascriptDebugType" uri="http://localhost:63342/www/src/index.html" useFirstLineBreakpoints="true" useBuiltInWebServerPort="true">
+    <mapping url="http://www.yuntin.com" local-file="$PROJECT_DIR$/" />
+    <mapping url="http://www.yuntin.com/index" local-file="$PROJECT_DIR$/index" />
+    <method v="2" />
+  </configuration>
+</component>

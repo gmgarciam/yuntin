@@ -1,0 +1,195 @@
+.caption ul { padding : 0px; margin:0px}
+.caption ul li {list-style: none}
+
+
+.overview img, .associations img, .certificate img, .product-video img, .thumb img {box-shadow: none;
+}
+
+/* --------------------------------------------- */
+.newsitem { margin-top: 5px }
+.newsitem .media-object{
+    padding:5px;
+    background-color: #CCDDEE;
+    text-align:center;
+}
+
+.newsitem .media-object p { margin:0px !important; padding:0px !important }
+.newsitem .media-object .month{
+    display:block;
+    /*color : #ffffff;
+    background-color: #bacd0f;*/
+    color: #00669A;
+    padding : 2px 6px;
+    font-size : 1em;
+}
+.newsitem .media-object .day{
+    display:block;
+    padding : 2px 6px;
+    color: #00669A;
+    /*color : #007700;
+    background-color: #FBED50;*/
+    font-size : 1.1em
+}
+.newsitem .media-body{
+
+}
+.newsitem .media-heading {
+    color : #414745;
+    font-size:1em;
+    margin-bottom:2px;
+}
+.newsitem .media-body p{
+    font-size:0.9em
+}
+
+#mainContent .media-heading {
+    /*color : #414745;*/
+    color : #ffffff;
+    font-size:1em;
+    margin-bottom:2px;
+}
+#mainContent .media-body p{
+    font-size:0.9em
+}
+
+/* -----------  nav  ---------------- */
+
+
+/*--------------------home------------------------------*/
+li.sub-menuItem { padding-left: 10px !important;}
+.sub-menuItem span { position: absolute; left: 0px;}
+
+/*--------------------services------------------------------*/
+#mainContent .content .contentHolder .services p { text-align: inherit }
+
+/*--------------------detailModal------------------------------*/
+#detailModal { min-height : 600px; width: 800px; margin-left: -400px }
+#detailModal .modal-body { max-height:600px }
+#detailModal .modal-header h2 { font-size:1.1em; line-height:normal }
+#detailModal .modal-header .close { font-size:2.5em;}
+#detailModal .modal-header a:hover { color : #FF0000}
+#detailModal .mainImage {text-align:center; padding: 10px;}
+#detailModal .mainImage img { padding: 10px;  border: 1px #CCCCCC solid}
+#detailModal .thumb { text-align: center; padding: 5px; border: 1px #CCCCCC solid; margin-top : 10px;}
+#detailModal .thumb img { width: 60px; cursor: pointer; padding: 5px; }
+
+
+
+
+/*-------------------------------------------------------------------------*/
+
+.navSide li.nav-header {padding-left:0px; font-size:1.2em; font-weight: normal;; border-bottom: 1px solid #CCCCCC; margin: 1px; margin-top:15px; color:rgb(51,51, 51)}
+.navSide li.sub {margin-top: 10px; margin-bottom:3px;line-height:1em; border:none; font-size:1em ; color:rgb(51,51,51)}
+.navSide li > a {}
+.navSide li.sub + li  { line-height:14px}
+.navSide li {margin:0px; padding:0px;padding-left : 0px}
+.navSide { padding-bottom: 20px}
+.navSide .nav-list { padding-left:0px; padding-right:0px}
+.navSide .nav-list li { position: relative}
+.nav-header span { text-transform: lowercase }
+.navSide .nav-list li span { position: absolute; right:0px; font-size:smaller; text-transform: capitalize;}
+.navSide .nav-list > li > a { padding-left: 0px; margin-left:0px; margin-right:0px}
+/* -------------------------milestones----------------------------------------- */
+.milstonesContent dl { }
+.milstonesContent dt { float: left; clear: left; width: 50px; text-align: right; font-weight: bold;  }
+.milstonesContent dt:after { content: ":"; }
+.milstonesContent dd { margin: 0 0 0 100px; padding: 0 0 1.5em 0; }
+.milstonesContent .country {font-weight:bold}
+
+/* ----------------------------social-------------------------------------- */
+ul.yiiPager .first, ul.yiiPager .previous,  ul.yiiPager .next, ul.yiiPager .last{
+    display: none;
+}
+
+/*--------------------association---------------------------------------------*/
+.assocationHolder ul { padding:0px; margin:0px; }
+.assocationHolder ul li { list-style: none; padding: 10px; overflow: hidden; border: 0.1px solid #CCCCCC ; margin-bottom: 10px;}
+
+/*--------------------cerficates---------------------------------------------*/
+#mainContainer .content .certificateHolder ul.thumbnails { padding-left: 50px; }
+#mainContainer .content .certificateHolder .thumbnail p { font-size: smaller;text-align:left}
+
+/*--------------------environment---------------------------------------------*/
+#mainContainer .content .environmentHolder ul { }
+#mainContainer .content .environmentHolder ul li { margin-bottom: 10px;padding-right: 40px; text-align:justify}
+/*--------------------market update---------------------------------------------*/
+table.marketUpdateTable { line-height: 1.2em}
+table.marketUpdateTable  td, table.marketUpdateTable  th {
+    padding: 1px 1px;
+    text-align: left;
+    font-size : 0.9em;
+    line-height : 2.5em;
+}
+table.marketUpdateTable  td.digitFigure { text-align : center}
+/*--------------------world wide ---------------------------------------------*/
+.worldwideHolder table td, .worldwideHolder table th {
+    margin : 0px; padding:0px;
+    text-align: left;
+}
+
+DIV#worldwide_container {
+
+}
+DIV#worldwide_right_container {
+    float: left;
+    padding-left: 5px;
+    width: 300px;
+}
+/*-------------------- enquiry form ---------------------------------------------*/
+#mainContent .content .contentHolder  dl.address { }
+#mainContent .content .contentHolder dl.address dt { float: left; clear: left; width: 80px; text-align: left; font-weight: bold;  }
+#mainContent .content .contentHolder  dl.address dt dt:after { content: ":"; }
+#mainContent .content .contentHolder  dl.address dd { margin: 0 0 0 100px; padding: 0 0 0.5em 0; }
+#mainContent .content .contentHolder  dl.address dd p {line-height: 25px;}
+
+#inquiry_form form.form-horizontal #enquiryFormRadioGroup input[type="radio"], #inquiry_form form.form-horizontal #SubSel input[type="radio"]{width: auto}
+#SubSel { background-color: #CCCCCC; padding-left: 20px;}
+#enquiryFormRadioGroup label.radio {  }
+#inquiry_form form.form-horizontal { margin-left: 20px}
+#inquiry_form .form-horizontal .control-label { text-align : left}
+#inquiry_form form.form-horizontal input, #inquiry_form form.form-horizontal select, #inquiry_form form.form-horizontal textarea { width : 400px; line-height: inherit}
+#inquiry_form .btn { margin-right : 10px;}
+#inquiry_form label, #inquiry_form input, #inquiry_form button, #inquiry_form select, #inquiry_form textarea { font-size:inherit; line-height: inherit }
+#inquiry_form .form-horizontal .control-group { margin-bottom: 10px;}
+
+/*-------------------- GST-Park-overview ---------------------------------------------*/
+.GSTParkOverviewHolder img { margin: 5px}
+
+/*-------------------- GST-Park-product ---------------------------------------------*/
+.GSTParkProductProjectHolder .left-product { float: left; width: 61%; }
+.GSTParkProductProjectHolder .left-product dl {padding: 0px;margin:0px }
+.GSTParkProductProjectHolder .left-product dt {}
+.GSTParkProductProjectHolder .left-product dd {text-align:justify; padding-right: 15px; margin-bottom:20px}
+
+.GSTParkProductProjectHolder .machinearyImageHolder { position: relative; margin:0px; padding:0px}
+.GSTParkProductProjectHolder .right-product { margin-left: 62%; width: 38%;}
+.GSTParkProductProjectHolder .right-product p.last_row{margin-top:2px; font-size :smaller; margin-bottom : 20px }
+.GSTParkProductProjectHolder .right-product p.pointer{position:absolute; top:0px; right:0px; margin:0px }
+
+/*-------------------- hsk ---------------------------------------------*/
+.HSKHolder .first_row p { width: 420px; float:left}
+.HSKHolder .second_row, .HSKHolder .four_row  { clear: both; text-align:center}
+.HSKHolder .second_row img { margin-left: 10px; margin-top:20px; margin-bottom: 20px}
+.HSKHolder .four_row img { margin-right: 40px; margin-top:20px; margin-bottom: 20px}
+
+/*-------------------- hsk timeline---------------------------------------------*/
+.zoomContainer{ z-index: 9999;}
+.zoomWindow{ z-index: 9999;}
+
+
+/*-------------------- plastic ---------------------------------------------*/
+.pasticProducts ul li.thumbnail { width:150px; padding: 20px 20px 20px 20px; height:150px; text-align:center}
+.pasticProducts ul li.thumbnail p { margin-top: 10px; font-size:smaller; line-height: 1em}
+
+
+.imgBtn { cursor: pointer}
+
+
+/*-------------------- plastic-classification ---------------------------------------------*/
+#mainContent .marketUpdateTable td.col1 { background-color : white}
+#mainContent .marketUpdateTable img { box-shadow: none}
+
+/*-------------------- album-photo ---------------------------------------------*/
+#album ul.thumbnails { margin-left:-10px}
+#album ul.thumbnails li { margin-left:15px }
+

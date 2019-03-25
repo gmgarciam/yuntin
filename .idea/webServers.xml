@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4b62aae4-cdd8-47ac-a369-b8a0d6ea8a63" name="www.yuntin.com" url="https://www.yuntin.com">
+        <fileTransfer host="127.0.0.1" port="2222" rootFolder="/home/estebagelhost/yuntin" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions maxConnections="4" />
+          </advancedOptions>
+          <option name="port" value="2222" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

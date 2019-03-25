@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../assets/estebagel/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/estebagel/css/bootstrap-yii.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/estebagel/css/jquery-ui-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <script type="text/javascript" src="../../assets/estebagel/jquery.js"></script>
+    <script type="text/javascript" src="../../assets/estebagel/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../assets/estebagel/js/bootstrap-noconflict.js"></script>
+    <script type="text/javascript" src="../../assets/estebagel/bootbox/bootbox.min.js"></script>
+    <script type="text/javascript" src="../../assets/estebagel/notify/notify.min.js"></script><style type="text/css" id="notify-bootstrap">.notifyjs-bootstrap-base {
+    font-weight: bold;
+    padding: 8px 15px 8px 14px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: #fcf8e3;
+    border: 1px solid #fbeed5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    padding-left: 25px;
+    background-repeat: no-repeat;
+    background-position: 3px 7px;
+}
+.notifyjs-bootstrap-error {
+    color: #B94A48;
+    background-color: #F2DEDE;
+    border-color: #EED3D7;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAtRJREFUeNqkVc1u00AQHq+dOD+0poIQfkIjalW0SEGqRMuRnHos3DjwAH0ArlyQeANOOSMeAA5VjyBxKBQhgSpVUKKQNGloFdw4cWw2jtfMOna6JOUArDTazXi/b3dm55socPqQhFka++aHBsI8GsopRJERNFlY88FCEk9Yiwf8RhgRyaHFQpPHCDmZG5oX2ui2yilkcTT1AcDsbYC1NMAyOi7zTX2Agx7A9luAl88BauiiQ/cJaZQfIpAlngDcvZZMrl8vFPK5+XktrWlx3/ehZ5r9+t6e+WVnp1pxnNIjgBe4/6dAysQc8dsmHwPcW9C0h3fW1hans1ltwJhy0GxK7XZbUlMp5Ww2eyan6+ft/f2FAqXGK4CvQk5HueFz7D6GOZtIrK+srupdx1GRBBqNBtzc2AiMr7nPplRdKhb1q6q6zjFhrklEFOUutoQ50xcX86ZlqaZpQrfbBdu2R6/G19zX6XSgh6RX5ubyHCM8nqSID6ICrGiZjGYYxojEsiw4PDwMSL5VKsC8Yf4VRYFzMzMaxwjlJSlCyAQ9l0CW44PBADzXhe7xMdi9HtTrdYjFYkDQL0cn4Xdq2/EAE+InCnvADTf2eah4Sx9vExQjkqXT6aAERICMewd/UAp/IeYANM2joxt+q5VI+ieq2i0Wg3l6DNzHwTERPgo1ko7XBXj3vdlsT2F+UuhIhYkp7u7CarkcrFOCtR3H5JiwbAIeImjT/YQKKBtGjRFCU5IUgFRe7fF4cCNVIPMYo3VKqxwjyNAXNepuopyqnld602qVsfRpEkkz+GFL1wPj6ySXBpJtWVa5xlhpcyhBNwpZHmtX8AGgfIExo0ZpzkWVTBGiXCSEaHh62/PoR0p/vHaczxXGnj4bSo+G78lELU80h1uogBwWLf5YlsPmgDEd4M236xjm+8nm4IuE/9u+/PH2JXZfbwz4zw1WbO+SQPpXfwG/BBgAhCNZiSb/pOQAAAAASUVORK5CYII=);
+}
+.notifyjs-bootstrap-success {
+    color: #468847;
+    background-color: #DFF0D8;
+    border-color: #D6E9C6;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAutJREFUeNq0lctPE0Ecx38zu/RFS1EryqtgJFA08YCiMZIAQQ4eRG8eDGdPJiYeTIwHTfwPiAcvXIwXLwoXPaDxkWgQ6islKlJLSQWLUraPLTv7Gme32zoF9KSTfLO7v53vZ3d/M7/fIth+IO6INt2jjoA7bjHCJoAlzCRw59YwHYjBnfMPqAKWQYKjGkfCJqAF0xwZjipQtA3MxeSG87VhOOYegVrUCy7UZM9S6TLIdAamySTclZdYhFhRHloGYg7mgZv1Zzztvgud7V1tbQ2twYA34LJmF4p5dXF1KTufnE+SxeJtuCZNsLDCQU0+RyKTF27Unw101l8e6hns3u0PBalORVVVkcaEKBJDgV3+cGM4tKKmI+ohlIGnygKX00rSBfszz/n2uXv81wd6+rt1orsZCHRdr1Imk2F2Kob3hutSxW8thsd8AXNaln9D7CTfA6O+0UgkMuwVvEFFUbbAcrkcTA8+AtOk8E6KiQiDmMFSDqZItAzEVQviRkdDdaFgPp8HSZKAEAL5Qh7Sq2lIJBJwv2scUqkUnKoZgNhcDKhKg5aH+1IkcouCAdFGAQsuWZYhOjwFHQ96oagWgRoUov1T9kRBEODAwxM2QtEUl+Wp+Ln9VRo6BcMw4ErHRYjH4/B26AlQoQQTRdHWwcd9AH57+UAXddvDD37DmrBBV34WfqiXPl61g+vr6xA9zsGeM9gOdsNXkgpEtTwVvwOklXLKm6+/p5ezwk4B+j6droBs2CsGa/gNs6RIxazl4Tc25mpTgw/apPR1LYlNRFAzgsOxkyXYLIM1V8NMwyAkJSctD1eGVKiq5wWjSPdjmeTkiKvVW4f2YPHWl3GAVq6ymcyCTgovM3FzyRiDe2TaKcEKsLpJvNHjZgPNqEtyi6mZIm4SRFyLMUsONSSdkPeFtY1n0mczoY3BHTLhwPRy9/lzcziCw9ACI+yql0VLzcGAZbYSM5CCSZg1/9oc/nn7+i8N9p/8An4JMADxhH+xHfuiKwAAAABJRU5ErkJggg==);
+}
+.notifyjs-bootstrap-info {
+    color: #3A87AD;
+    background-color: #D9EDF7;
+    border-color: #BCE8F1;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYFAhkSsdes/QAAA8dJREFUOMvVlGtMW2UYx//POaWHXg6lLaW0ypAtw1UCgbniNOLcVOLmAjHZolOYlxmTGXVZdAnRfXQm+7SoU4mXaOaiZsEpC9FkiQs6Z6bdCnNYruM6KNBw6YWewzl9z+sHImEWv+vz7XmT95f/+3/+7wP814v+efDOV3/SoX3lHAA+6ODeUFfMfjOWMADgdk+eEKz0pF7aQdMAcOKLLjrcVMVX3xdWN29/GhYP7SvnP0cWfS8caSkfHZsPE9Fgnt02JNutQ0QYHB2dDz9/pKX8QjjuO9xUxd/66HdxTeCHZ3rojQObGQBcuNjfplkD3b19Y/6MrimSaKgSMmpGU5WevmE/swa6Oy73tQHA0Rdr2Mmv/6A1n9w9suQ7097Z9lM4FlTgTDrzZTu4StXVfpiI48rVcUDM5cmEksrFnHxfpTtU/3BFQzCQF/2bYVoNbH7zmItbSoMj40JSzmMyX5qDvriA7QdrIIpA+3cdsMpu0nXI8cV0MtKXCPZev+gCEM1S2NHPvWfP/hL+7FSr3+0p5RBEyhEN5JCKYr8XnASMT0xBNyzQGQeI8fjsGD39RMPk7se2bd5ZtTyoFYXftF6y37gx7NeUtJJOTFlAHDZLDuILU3j3+H5oOrD3yWbIztugaAzgnBKJuBLpGfQrS8wO4FZgV+c1IxaLgWVU0tMLEETCos4xMzEIv9cJXQcyagIwigDGwJgOAtHAwAhisQUjy0ORGERiELgG4iakkzo4MYAxcM5hAMi1WWG1yYCJIcMUaBkVRLdGeSU2995TLWzcUAzONJ7J6FBVBYIggMzmFbvdBV44Corg8vjhzC+EJEl8U1kJtgYrhCzgc/vvTwXKSib1paRFVRVORDAJAsw5FuTaJEhWM2SHB3mOAlhkNxwuLzeJsGwqWzf5TFNdKgtY5qHp6ZFf67Y/sAVadCaVY5YACDDb3Oi4NIjLnWMw2QthCBIsVhsUTU9tvXsjeq9+X1d75/KEs4LNOfcdf/+HthMnvwxOD0wmHaXr7ZItn2wuH2SnBzbZAbPJwpPx+VQuzcm7dgRCB57a1uBzUDRL4bfnI0RE0eaXd9W89mpjqHZnUI5Hh2l2dkZZUhOqpi2qSmpOmZ64Tuu9qlz/SEXo6MEHa3wOip46F1n7633eekV8ds8Wxjn37Wl63VVa+ej5oeEZ/82ZBETJjpJ1Rbij2D3Z/1trXUvLsblCK0XfOx0SX2kMsn9dX+d+7Kf6h8o4AIykuffjT8L20LU+w4AZd5VvEPY+XpWqLV327HR7DzXuDnD8r+ovkBehJ8i+y8YAAAAASUVORK5CYII=);
+}
+.notifyjs-bootstrap-warn {
+    color: #C09853;
+    background-color: #FCF8E3;
+    border-color: #FBEED5;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABJlBMVEXr6eb/2oD/wi7/xjr/0mP/ykf/tQD/vBj/3o7/uQ//vyL/twebhgD/4pzX1K3z8e349vK6tHCilCWbiQymn0jGworr6dXQza3HxcKkn1vWvV/5uRfk4dXZ1bD18+/52YebiAmyr5S9mhCzrWq5t6ufjRH54aLs0oS+qD751XqPhAybhwXsujG3sm+Zk0PTwG6Shg+PhhObhwOPgQL4zV2nlyrf27uLfgCPhRHu7OmLgAafkyiWkD3l49ibiAfTs0C+lgCniwD4sgDJxqOilzDWowWFfAH08uebig6qpFHBvH/aw26FfQTQzsvy8OyEfz20r3jAvaKbhgG9q0nc2LbZxXanoUu/u5WSggCtp1anpJKdmFz/zlX/1nGJiYmuq5Dx7+sAAADoPUZSAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfdBgUBGhh4aah5AAAAlklEQVQY02NgoBIIE8EUcwn1FkIXM1Tj5dDUQhPU502Mi7XXQxGz5uVIjGOJUUUW81HnYEyMi2HVcUOICQZzMMYmxrEyMylJwgUt5BljWRLjmJm4pI1hYp5SQLGYxDgmLnZOVxuooClIDKgXKMbN5ggV1ACLJcaBxNgcoiGCBiZwdWxOETBDrTyEFey0jYJ4eHjMGWgEAIpRFRCUt08qAAAAAElFTkSuQmCC);
+}
+</style>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/holder/1.9.0/holder.js"></script>
+    <script type="text/javascript" src="../../assets/estebagel/themes/minimal/js/jquery.elevatezoom.js"></script>
+    <title>Yun Tin Logistics & Transport Ltd - PlasticClassification Products</title>
+    <meta name="viewport" content="width=1100">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../../assets/estebagel/img/themes/minimal/images/background/YunTinLogo-white-57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../assets/estebagel/img/themes/minimal/images/background/YunTinLogo-white-60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../assets/estebagel/img/themes/minimal/images/background/YunTinLogo-white-72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/estebagel/img/themes/minimal/images/background/YunTinLogo-white-76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../assets/estebagel/img/themes/minimal/images/background/YunTinLogo-white-116.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../assets/estebagel/img/themes/minimal/images/background/YunTinLogo-white-120.png">
+    <link rel="icon" type="image/png" href="../../assets/estebagel/img/themes/minimal/images/background/YunTinLogo-nologo-black-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/estebagel/img/themes/minimal/images/background/YunTinLogo-black-96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../../assets/estebagel/img/themes/minimal/images/background/YunTinLogo-nologo-black-16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="/node_modules/modernizr/src/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons
+          <link rel="shortcut icon" href="../assets/ico/favicon.png">-->
+    <link rel="stylesheet" type="text/css" href="../../assets/estebagel/themes/minimal/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/estebagel/themes/minimal/css/comp.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/estebagel/themes/minimal/css/pages.css">
+    <style type="text/css" id="core-notify">.notifyjs-corner {
+        position: fixed;
+        margin: 5px;
+        z-index: 1050;
+    }
+
+    .notifyjs-corner .notifyjs-wrapper,
+    .notifyjs-corner .notifyjs-container {
+        position: relative;
+        display: block;
+        height: inherit;
+        width: inherit;
+        margin: 3px;
+    }
+
+    .notifyjs-wrapper {
+        z-index: 1;
+        position: absolute;
+        display: inline-block;
+        height: 0;
+        width: 0;
+    }
+
+    .notifyjs-container {
+        display: none;
+        z-index: 1;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    [data-notify-text],[data-notify-html] {
+        position: relative;
+    }
+
+    .notifyjs-arrow {
+        position: absolute;
+        z-index: 2;
+        width: 0;
+        height: 0;
+    }</style><style id="holderjs-style" type="text/css">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style></head>
+
+<body data-original-title="" title="">
+<div id="header" class="row-fluid">
+    <div id="topHeader" class="span12">
+        <div class="container">
+
+
+        </div>
+    </div><!--/.tophead -->
+    <div class="row-fluid">
+        <div id="midHeader" class="span12">
+            <div id="headBackground" style="position: absolute; width: 100%; height: 250px">
+            </div>
+            <div class="container">
+
+
+
+
+
+                <div id="headerMenu" class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="navbar-inner"><div class="container"><a href="#" class="brand"></a>
+                        <ul id="yw0" class="nav">
+
+                            <li id="aboutuscMenu" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">About Us <span class="caret"></span></a>
+                                <ul id="yw1" class="dropdown-menu">
+                                    <li><a tabindex="-1" href="../../aboutus/messages-from.html">Message from CEO</a></li>
+                                    <li><a tabindex="-1" href="../../aboutus/overview">Overview</a></li>
+                                    <li><a tabindex="-1" href="../../aboutus/mission-and-vision.html">Mission and Vision</a></li>
+                                    <li><a tabindex="-1" href="../../aboutus/associations.html">Associations</a></li>
+                                    <li><a tabindex="-1" href="../../aboutus/certificate">Certificate</a></li>
+                                    <li><a tabindex="-1" href="../../aboutus/quality-environmental-policy.html">Quality and Environmental Policy</a></li>
+                                </ul>
+                            </li>
+                            <li id="productMenu" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Products &amp; Services <span class="caret"></span></a>
+                                <ul id="yw2" class="dropdown-menu">
+                                    <li class="dropdown-submenu"><a tabindex="-1" href="#">Plastic Materials</a>
+                                        <ul id="yw3" class="dropdown-menu">
+                                            <li><a tabindex="-1" href="../../products/plastic/PET.html">PET</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/HDPE.html">HDPE</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/LDPE.html">LDPE</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/PVC.html">PVC</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/PP.html">PP</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/PS.html">PS</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/PCABS.html">PC</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/ABS.html">ABS</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/PA.html">PA/Nylon</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/POM.html">POM</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/PMMA.html">PMMA/Acrylic</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/Elastomers.html">Elastomer</a></li>
+                                            <li><a tabindex="-1" href="../../products/plastic/PCABS.html">PC/ABS</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu"><a tabindex="-1" href="#">Merchandise Products</a>
+                                        <ul id="yw4" class="dropdown-menu">
+                                            <li class="dropdown-submenu"><a tabindex="-1" href="/products/merchandise/29?type=main_cat">Plastic Pallets</a>
+                                                <ul id="yw5" class="dropdown-menu">
+                                                    <li><a tabindex="-1" href="../../products/merchandise/17?type=sub_cat">Nine-Feet Single Face Pallet (Black)</a></li>
+                                                    <li><a tabindex="-1" href="../../products/merchandise/18?type=sub_cat">Nine-Feet Single Face Pallet (Blue)</a></li>
+                                                    <li><a tabindex="-1" href="../../products/merchandise/19?type=sub_cat">Stackable/Rackable Pallet (Green)</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a tabindex="-1" href="../../products/merchandise/31?type=main_cat">Thermoforming and Calendaring</a></li>
+                                            <li><a tabindex="-1" href="../../products/merchandise/35?type=main_cat">Cutlery</a></li>
+                                            <li><a tabindex="-1" href="../../products/merchandise/40?type=main_cat">Flower Pots</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu"><a tabindex="-1" href="#">Services</a>
+                                         <ul id="yw6" class="dropdown-menu">
+                                             <li><a tabindex="-1" href="../../products/services/grinding">Grinding Service</a></li>
+                                             <li><a tabindex="-1" href="../../products/services/shredding">Shredding Service</a></li>
+                                             <li><a tabindex="-1" href="../../products/services/pelletizing">Pelletizing Service</a></li>
+                                             <li><a tabindex="-1" href="../../products/services/washing">Washing Service</a></li>
+                                         </ul>
+                                    </li>
+                                    <li class="dropdown-submenu"><a tabindex="-1" href="#">Machinery</a>
+                                        <ul id="yw7" class="dropdown-menu">
+                                            <li><a tabindex="-1" href="/../..products/Lindner">Lindner</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a tabindex="-1" href="../../products/plastic-classification.html">Plastic Business &amp; Plastic Classification</a></li>
+                                    <li><a tabindex="-1" href="../../products/plastic-recycling-procedures.html">Plastic Recycling Procedures</a></li>
+                                    <li><a tabindex="-1" href="../../products/brochure-download">Brochure Download</a></li>
+                                    <li><a tabindex="-1" href="../../products/product-video">Product Video</a></li>
+                                </ul>
+                            </li>
+                            <li id="partnersMenu" class="partnersBox dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Our Partners <span class="caret"></span></a>
+                                <ul id="yw8" class="dropdown-menu">
+                                    <li><a tabindex="-1" href="../../partners/SKG-overview">SKG<span>Austria</span></a></li>
+                                    <li><a tabindex="-1" href="../../partners/Eurec-overview">Eurec<span>Denmark</span></a></li>
+                                    <li><a tabindex="-1" href="../../partners/GFR-overview">GFR<span>Germany</span></a></li>
+                                    <li><a tabindex="-1" href="../../partners/PFAU-overview">PFAU<span>Germany</span></a></li>
+                                    <li><a tabindex="-1" href="../../partners/RP-overview">R&amp;P<span>Germany</span></a></li>
+                                    <li><a tabindex="-1" href="../../partners/PMP-overview">PMP-Italia<span>Italy</span></a></li>
+                                    <li><a tabindex="-1" href="../../partners/JCL-Plastic-overview">JCL Plastic<span>South Africa</span></a></li>
+                                    <li><a tabindex="-1" href="../../partners/Regenthill-Limited-overview">Regenthill Limited<span>United Kingdom</span></a></li>
+                                </ul>
+                            </li>
+                            <li id="newsMenu" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">News &amp; Event <span class="caret"></span></a>
+                                <ul id="yw9" class="dropdown-menu">
+                                    <li><a tabindex="-1" href="../../news/updated-news">News</a></li>
+                                    <li><a tabindex="-1" href="../../news/something-from-Fukutomi">Something from Fukutomi</a></li>
+                                    <li><a tabindex="-1" href="../../news/social-responsibility">Social Responsibility</a></li>
+                                    <li><a tabindex="-1" href="../../news/photo-gallery">Photo Gallery</a></li>
+                                </ul>
+                            </li>
+                            <li id="contactMenu" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Contact Us <span class="caret"></span></a>
+                                <ul id="yw10" class="dropdown-menu">
+                                    <li><a tabindex="-1" href="../../contactus/contact">Contact</a></li>
+                                    <li class="dropdown-submenu"><a tabindex="-1" href="#">Factories</a>
+                                        <ul id="yw11" class="dropdown-menu">
+                                            <li><a tabindex="-1" href="../../contactus/GST-Park-overview">GST Park<span>China</span></a></li>
+                                            <li><a tabindex="-1" href="../../contactus/HSK-overview">HSK<span>Hong Kong</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu"><a tabindex="-1" href="#">Partnership</a>
+                                        <ul id="yw12" class="dropdown-menu">
+                                            <li><a tabindex="-1" href="../../contactus/Fukutomi-Green-Products-overview">Fukutomi Green Products<span>USA</span></a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a tabindex="-1" href="../../contactus/enquiry-form">Enquiry Form</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <span id="logo"><a href="/index"><img src="../../assets/estebagel/img/themes/minimal/images/background/logo-needtomakeblack.png"></a></span>
+                <span id="logo_tile"><a href="/index"><img src="../../assets/estebagel/img/themes/minimal/images/background/logo_title_1.png"></a></span>
+                <ul id="lang_selector" class="pull-right"><li><a href="/contactus/worldwide-contacts">
+                    <img src="../../assets/estebagel/img/themes/minimal/images/background/map-needtomake.png"></a></li>
+                    <li><a href="../../products/plastic-classification/lang_selected/en_us">English</a></li>
+                    <li><a href="../../products/plastic-classification/lang_selected/zh_tw">Chinese</a></li>
+                    <li><a href="../../products/plastic-classification/lang_selected/jp">Japanese</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div><!--/.navbar-fixed-top -->
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="imageContent" class="row-fluid">
+    <div class="span12">
+        <div class="content">
+            <img src="../../assets/estebagel/img/themes/minimal/images/pages/products/products-needmarco.jpg">
+        </div>
+    </div>
+</div>
+
+<div id="mainContainerHolder"><div id="mainContainer" class="container">
+    <div id="mainContent1" class="row">
+        <div class="span3 navSide contactusCat">
+            <div class="content">
+                <h2>Products &amp; Services</h2>
+                <ul class="nav nav-list">
+                    <li class="nav-header">Plastic Materials</li>
+                        <li><a href="../../products/plastic/PET.html">PET</a></li>
+                        <li><a href="../../products/plastic/HDPE.html">HDPE</a></li>
+                        <li><a href="../../products/plastic/LDPE.html">LDPE</a></li>
+                        <li><a href="../../products/plastic/PVC.html">PVC</a></li>
+                        <li><a href="../../products/plastic/PP.html">PP</a></li>
+                        <li><a href="../../products/plastic/PS.html">PS</a></li>
+                        <li><a href="../../products/plastic/PCABS.html">PC</a></li>
+                        <li><a href="../../products/plastic/ABS.html">ABS</a></li>
+                        <li><a href="../../products/plastic/PA.html">PA/Nylon</a></li>
+                        <li><a href="../../products/plastic/POM.html">POM</a></li>
+                        <li><a href="../../products/plastic/PMMA.html">PMMA/Acrylic</a></li>
+                        <li><a href="../../products/plastic/Elastomers.html">Elastomer</a></li>
+                        <li><a href="../../products/plastic/PCABS.html">PC/ABS</a></li>
+                    <li class="nav-header">Merchandise Products</li>
+                        <li><a href="../../products/merchandise/29?type=main_cat">Plastic Pallets</a></li>
+                            <li class="sub-menuItem"><span>-</span><a href="../../products/merchandise/17.html?type=sub_cat">Nine-Feet Single Face Pallet (Black)</a></li>
+                            <li class="sub-menuItem"><span>-</span><a href="../../products/merchandise/18?type=sub_cat">Nine-Feet Single Face Pallet (Blue)</a></li>
+                            <li class="sub-menuItem"><span>-</span><a href="../../products/merchandise/19?type=sub_cat">Stackable/Rackable Pallet (Green)</a></li>
+                        <li><a href="../../products/merchandise/31?type=main_cat">Thermoforming and Calendaring</a></li>
+                        <li><a href="../../products/merchandise/35?type=main_cat">Cutlery</a></li>
+                        <li><a href="../../products/merchandise/40?type=main_cat">Flower Pots</a></li>
+                    <li class="nav-header">Services</li>
+                        <li><a href="../../products/services/grinding">Grinding Service</a></li>
+                        <li><a href="../../products/services/shredding">Shredding Service</a></li>
+                        <li><a href="../../products/services/pelletizing">Pelletizing Service</a></li>
+                        <li><a href="../../products/services/washing">Washing Service</a></li>
+                    <li>&nbsp;</li><li>
+                        <a href="../../products/plastic-classification">Plastic Business &amp; Plastic Classification</a></li>
+                        <li><a href="../../products/plastic-recycling-procedures">Plastic Recycling Procedures</a></li>
+                        <li><a href="../../products/brochure-download">Brochure Download</a></li>
+                        <li><a href="../../products/product-video">Product Video</a></li>
+                </ul>
+
+
+
+
+            </div>
+        </div>     <div class="span9 notLetMostSpan">
+        <div class="content">
+            <h2>Plastic Business &amp; Plastic Classification </h2>
+            <div class="contentHolder pasticProducts">
+
+                <ul class="thumbnails">
+                    <li class="thumbnail"><a href="#" class="thumbClick" data-prdid="269">
+                        <img src="../../assets/estebagel/img/themes/minimal/images/pages/products/269_1_s.jpg" alt=""></a>
+                        <p>TPU LUMPS IN PAPER BARRELS<br>(B001-HHB)</p>
+                    </li>
+                    <li class="thumbnail"><a href="#" class="thumbClick" data-prdid="268">
+                        <img src="../../assets/estebagel/img/themes/minimal/images/pages/products/268_1_s.jpg" alt=""></a>
+                        <p>TPU LUMPS NATURAL STEEL BOX<br>(B001-BR)</p>
+                    </li>
+                    <li class="thumbnail"><a href="#" class="thumbClick" data-prdid="267">
+                        <img src="../../assets/estebagel/img/themes/minimal/images/pages/products/267_1_s.jpg" alt=""></a>
+                        <p>TPE HYTREL LUMPS<br>(B001-DTL)</p>
+                    </li>
+                    <li class="thumbnail"><a href="#" class="thumbClick" data-prdid="266">
+                        <img src="../../assets/estebagel/img/themes/minimal/images/pages/products/266_1_s.jpg" alt=""></a>
+                        <p>TPE HYTREL LUMPS<br>(B001-DTL)</p>
+                    </li>
+                    <li class="thumbnail"><a href="#" class="thumbClick" data-prdid="265">
+                        <img src="../../assets/estebagel/img/themes/minimal/images/pages/products/265_1_s.jpg" alt=""></a>
+                        <p>TPE HYTREL GRANULES<br>(B001-DTL)</p>
+                    </li>
+                    <li class="thumbnail"><a href="#" class="thumbClick" data-prdid="264">
+                        <img src="../../assets/estebagel/img/themes/minimal/images/pages/products/264_1_s.jpg" alt=""></a>
+                        <p>TPE HYTREL GRANULES<br>(B001-DTL)</p>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+</div><!-- mainContainerHolder -->
+    <!-- content -->
+
+
+</div>
+<div id="midContainer" class="row-fluid">
+
+
+
+    <!-- Example row of columns -->
+
+    <div id="mainContent" class="container">
+        <div class="span4">
+            <div id="shortcut" class="content">
+                <h2>Products &amp; Services</h2>
+                <ul>
+                    <li><i class=" fa-arrow-circle-o-right"></i><a href="../../products/plastic/PET">Plastic Materials</a></li>
+                    <li><a href="../../products/plastic/PET">Merchandise Products</a></li>
+                    <li><a href="../../products/machinery?type=main_cat">Machinery</a></li>
+                    <li><a href="../../products/services/grinding">Services</a></li>
+                    <li><a href="../../partners/HSK-overview">Factories</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+        <div class="span4">
+            <div class="content">
+                <h2>News</h2>
+                <div class="media newsitem">
+                    <a class="pull-left newsModal" data-newsid="144" href="#">
+                        <div class="media-object">
+                            <p style="border-bottom:1px solid #00669A">
+                                <span class="day">14</span></p>
+                            <p><span class="month">Jan</span></p>
+                        </div>
+                    </a>
+                    <div class="media-body">
+                        <a class="newsModal" data-newsid="144" href="#"><h4 class="media-heading">Crude oil</h4></a>
+                        <p>Original by Steve Wong
+
+                    The price of crude oil is one of the key elements that is affecting plasti...</p>
+                    </div>
+                </div>
+                <div class="media newsitem">
+                    <a class="pull-left newsModal" data-newsid="145" href="#">
+                        <div class="media-object">
+                            <p style="border-bottom:1px solid #00669A">
+                                <span class="day">14</span></p>
+                            <p><span class="month">Jan</span></p>
+                        </div>
+                    </a>
+                    <div class="media-body">
+                        <a class="newsModal" data-newsid="145" href="#"><h4 class="media-heading">第333期營商之道–飲食習慣與環保</h4></a>
+                        <p>Dr. Steve Wong
+                8/1/2019
+
+                剛出差到韓國斧山，當然少不了吃地道的各種海產及生...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+
+
+
+
+
+            <div class="content">
+
+
+                <h2>Contact</h2>
+                <p>  Building address here,
+                    <br> Your Hong Kong Road,
+                    <br>City here, N.T., Hong Kong.
+                    <br>
+                </p>
+                <div class="contentHolder">
+
+
+                    <dl class="address">
+                        <dt>TEL <span class="pull-right">:</span> </dt>
+                        <dd>(+000) 0000 0000</dd>
+                        <dt>FAX <span class="pull-right">:</span> </dt>
+                        <dd>(+000) 0000 0000</dd>
+                        <dt>E-mail <span class="pull-right">:</span> </dt>
+                        <dd><p>Marco Scrap Recycling<br>
+                            <a href="your@emailaddress.com">your@emailaddress.com </a>
+                            <br>Products Enquiry<br>
+                            <a href="your_merchandise@emailaddress.com">your_merchandise@emailaddress.com</a></p>
+
+
+
+
+
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="row-fluid">
+    <div class="container">
+        <div class="span4">
+
+
+
+
+
+
+            <div class="content">
+                <p style="margin-bottom: -2px"><b>Office</b></p>
+                <p>  Building address here,
+                    <br> Your Hong Kong Road,
+                    <br>City here, N.T., Hong Kong.<br>
+                </p>
+                <p style="margin-bottom: -2px">
+                    <b>Factory</b></p>
+                <p>Your Factory address here
+                    <br>
+                    municipal here?, City here, N.T., Hong Kong
+                </p>
+
+
+
+
+                <img id="slogan" src="../../assets/estebagel/img/themes/minimal/images/background/slogan-needtomake.png" class="pull-left">
+            </div>
+        </div>
+        <div class="span8">
+            <div class="content">
+                <ul class="pull-right">
+                    <li id="l11">
+                        <a href="http://www.bir.org/" target="_blank">
+                            <img id="img11" src="../../assets/estebagel/img/themes/minimal/images/background/BIR.jpg">
+                        </a>
+                    </li>
+                    <li id="l12">
+                        <a href="/products/lindner" target="_blank">
+                            <img id="img12" src="../../assets/estebagel/img/themes/minimal/images/background/Lindner.jpg">
+                        </a>
+                    </li>
+                    <li id="l13">
+                        <img id="img13" src="../../assets/estebagel/img/themes/minimal/images/background/iso9001en3.jpg">
+                    </li>
+                </ul>
+                <ul class="pull-right">
+                    <li id="l21">
+                        <a href="https://www.facebook.com/marco.kam.12" target="_blank">
+                            <img id="img21" src="../../assets/estebagel/img/themes/minimal/images/background/marco.jpg">
+                        </a>
+                    </li>
+                    <li id="l22">
+                        <a href="/products/lindner" target="_blank">
+                            <img id="img22" src="../../assets/estebagel/img/themes/minimal/images/background/Lindner2.jpg">
+                        </a>
+                    </li>
+                    <li id="l23">
+                    </li>
+                </ul>
+                <p class="clear"></p>
+                <p class="pull-right" style="margin-right:20px; margin-top: 20px">© Yun Tin Logistics & Transport Ltd. All right reserved 2019</p>.
+
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+
+
+
+<div id="detailModal" class="modal hide fade">
+    <div class="modal-header media detailItem">
+
+        <div class="pull-left media-object">
+
+        </div>
+        <div class="media-body"><a class="close pull-right" data-dismiss="modal">X</a>
+            <h2></h2><p><span class="date"></span></p>
+        </div>
+
+
+    </div>
+    <div class="modal-body">
+        <div class="textContent"></div>
+        <div class="imageContent">
+            <div class="mainImage"></div>
+            <div class="thumb"></div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    jQuery(function($) {
+        jQuery('[data-toggle=popover]').popover();
+        jQuery('body').tooltip(["[data-toggle=tooltip]"]);
+
+
+        $(".imgBtn").on("click", function(evt){
+
+            $("#detailModal").modal();
+            $("#detailModal .modal-body .imageContent .mainImage").empty();
+
+            var id = $(this).attr("data-id");
+
+            var imageHtml = "<img id=\"imageHolder\" data-zoom-image=\"/old/photos/"+id+".jpg\" src="+id+"\"/src/old/photos/.jpg\" />";
+            $("#detailModal .modal-body .imageContent .mainImage").append(imageHtml)
+            $("#detailModal .modal-body .imageContent .thumb").css("display","none");
+
+
+            $("#imageHolder").elevateZoom();
+
+        })
+
+
+        /*
+        var itemsHeight = new Array();
+        var hightest_length    = 0;
+        var lowest_item;
+        $("#mainContent").children().each(function(index, item) {
+            console.log(item, "====" ,$(item).height())
+            var itemHeight = $(item).children(":first").height();
+            if(hightest_length == 0){
+                hightest_length = itemHeight;
+                lowest_item = $(item);
+            } else {
+                if(hightest_length < itemHeight){
+                    hightest_length  = itemHeight;
+
+                } else {
+                    lowest_item = $(item);
+                }
+            }
+
+        });
+        console.log(hightest_length)
+        lowest_item.children(".content").height(hightest_length)
+        */
+
+
+
+        $(".newsModal").on("click", function(evt){
+
+            var newsid = $(this).attr("data-newsid");
+            $.ajax({
+                "type": "POST",
+                "url" : "/news/getNews",
+                data : {news_id: newsid},
+                success: function (data) {
+                    $("#detailModal").modal();
+
+
+
+
+                    console.log(data);
+                    var dataObj = JSON.parse(data);
+                    console.log(dataObj.title)
+
+
+
+                    $("#detailModal .modal-header h2").html(dataObj.title)
+                    //$("#detailModal .modal-header .day").html(dataObj.day)
+                    //$("#detailModal .modal-header .month").html(dataObj.month)
+                    $("#detailModal .modal-header .date").html(dataObj.news_date)
+
+                    $("#detailModal .modal-body .textContent").empty();
+
+                    $("#detailModal .modal-body .textContent").append(dataObj.content)
+
+                    $("#detailModal .modal-body .imageContent .mainImage").empty();
+                    $("#detailModal .modal-body .imageContent .thumb").empty();
+
+                    var objLength = jQuery(dataObj.images).size();
+                    //console.log(objLength)
+                    if(objLength==0){
+                        $("#detailModal .modal-body .imageContent .mainImage").css("display","none");
+                        $("#detailModal .modal-body .imageContent .thumb").css("display","none");
+
+                    } else {
+                        $("#detailModal .modal-body .imageContent .mainImage").css("display","block");
+                        for ( var key in dataObj.images){
+                            //console.log(dataObj.images[key])
+
+                            if(key == 0){
+                                $("#detailModal .modal-body .imageContent .thumb").css("display","block");
+                                var imageHtml = "<img id=\"imageHolder\" src=\""+dataObj.images[key]+"\" />";
+                                $("#detailModal .modal-body .imageContent .mainImage").append(imageHtml)
+                            }
+                            if(objLength>1){
+                                var thumbHtml = "<img onclick=\"getElementById('imageHolder').src='"+dataObj.images[key]+"'\" src=\""+dataObj.images[key]+"\" />";
+                                $("#detailModal .modal-body .imageContent .thumb").append(thumbHtml)
+                            } else {
+                                $("#detailModal .modal-body .imageContent .thumb").css("display","none");
+                            }
+
+                        }
+                    }
+                },
+                dataType: "html"
+
+            })
+
+
+        })
+
+
+
+
+
+        jQuery('#detailModal').modal({'show':false});
+    });
+    /*]]>*/
+</script>
+
+
+</body></html>
